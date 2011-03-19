@@ -41,6 +41,7 @@
                    string-split))
  (provide 
   build-machine
+  to-dot
   run)
 
  (define *branch-dirs* `((p ((f0 ((b up) (,null left) (r down)))
@@ -113,10 +114,12 @@
          null))
 
  ;; Returns a unique name for the token, used for function calls.
- ;; i.e. token in position (12 3) gets called "fn-12-3"
+ ;; i.e. token in position (12 3) of type 'p gets called "p-12-3"
  (define (token-id token)
-   (string->symbol (string-join (append '("fn") (map number->string (token-pos token))) "-")))
-
+   (string->symbol (string-join (append (list (symbol->string (token-type token)))
+                                        (map number->string (token-pos token))
+                                        "-"))))
+ 
  ;; Returns the token's position
  (define (token-pos token)
    (car token))
@@ -297,19 +300,94 @@
                                token))
                 tape)))))
 
+ ;; Returns the dot code for a branch (tokens 'p and 'q)
+ (define (branch-dot token tokens)
+   (define (branch color id)
+     (let ([tok (get-token (next-pos (token-pos token)
+                                     (next-branch-dir (list color) token))
+                           tokens)])
+       (if (null? tok) 
+           (list id 'reject color) 
+           (if (basket? tok)
+               (list id 'accept color) 
+               (list id 
+                     (token-id (if (carrier? tok) 
+                                   (advance tok tokens) 
+                                   tok))
+                     color)))))
+
+   (let ([id (token-id token)])
+     (cond [(blue-red-branch? token)
+            (list (branch 'b id)
+                  (branch 'r id)
+                  (branch null id))]  ; maybe green or yellow
+           [(green-yellow-branch? token)
+            (list (branch 'g id)
+                  (branch 'y id)
+                  (branch null id))] ; maybe red or green
+           [else raise("Invalid token color")])))
+
+ ;; Returns the dot code for the writers (tokens 'b 'r 'g and 'y)
+ (define (writer-dot token tokens)
+   (let ([id (token-id token)]
+         [tok (get-token (next-pos (token-pos token) (one-way-dir (token-dir token)))
+                     tokens)])
+     (if (null? tok) 
+         (list id 'reject) 
+         (if (basket? tok)
+             (list id 'accept) 
+             (list id (token-id (if (carrier? tok) 
+                                    (advance tok tokens) 
+                                    tok)))))))
+
+ ;; Returns a list with the machine's code
+ (define (to-dot hardware-desc)
+
+   (define (branch-defs tokens)
+     (map (lambda (tok) (branch-dot tok tokens)) (filter branch? tokens)))
+
+   (define (writer-defs tokens)
+     (map (lambda (tok) (writer-dot tok tokens)) (filter writer? tokens)))
+
+   (let* ([level (get-level hardware-desc)]
+          [spos (get-start-pos level)]
+          [tokens (split-into-tokens hardware-desc)]
+          [token (get-token spos tokens)])
+     (append '(graph)
+             (branch-defs tokens)
+             (writer-defs tokens)
+             (list 'start (token-id (if (carrier? token) 
+                                        (advance token tokens) 
+                                        token))))))
+
  (define (run machine tape)
    ;; see http://docs.racket-lang.org/guide/eval.html#(part._namespaces)
    ;; for help on make-base-namespace
-   ((eval machine) tape (make-base-namespace)))
-
+   ;;((eval machine (make-base-namespace) tape)))
+   ((eval machine) tape))
  )
 
 ;; sample usage:
+(require 'manufactoria)
 
-(define machine (build-machine "?lvl=25&code=c12:5f3;c12:9f3;p12:6f3;g11:6f1;c11:5f2;y13:6f1;c13:5f0;c12:7f3;q12:8f3;c13:7f0;c11:7f2;r13:8f1;b11:8f1;"))
+(define hw "?lvl=25&code=c12:5f3;c12:9f3;p12:6f3;g11:6f1;c11:5f2;y13:6f1;c13:5f0;c12:7f3;q12:8f3;c13:7f0;c11:7f2;r13:8f1;b11:8f1;")
+
+(define machine (build-machine hw))
 
 ;; run it!
 (run machine '(b r b))
 
 ;; show machine's code
 machine
+
+;; (define body (cddr machine))
+;; (define (define? def)
+;;   (eq? (car def) 'define))
+;; (define (fn? def)
+;;   (string=? "fn-" (substring (symbol->string (caadr def)) 0 3)))
+
+;; (filter fn? (filter define? body))
+
+;; ;(filter (lambda (x) (string=? "fn-" (substring (symbol->string (caadr x)) 0 3))) (filter (lambda (x) (eq? (car x) 'define)) (cddr machine)))
+;; (cdr machine)
+(to-dot hw)
