@@ -1,4 +1,4 @@
-;; manufactoria
+;; Manufactoria
 
 ;; program that generates the function representing the machine
 
@@ -35,12 +35,7 @@
 
 (module manufactoria racket
         (provide build-machine
-                 to-dot
                  run)
-
-(require (only-in "string-helpers.rkt"
-                  string-null?
-                  string-split))
 
 (define *branch-dirs* `((p ((f0 ((b up) (,null left) (r down)))
                             (f1 ((b right) (,null up) (r left)))
@@ -76,31 +71,32 @@
                    ))
 
 (define (get-start-pos lvl)
-  (cadadr (assoc lvl *levels*)))
+  (second (second (assoc lvl *levels*))))
 
 (define (get-finish-pos lvl)
-  (last (last (assoc lvl *levels*))))
+  (third (second (assoc lvl *levels*))))
 
+;; pre: hardware-desc is a string
 (define (get-level hardware-desc)
-  (string->number (second (string-split hardware-desc '(#\; #\& #\=)))))
+  (string->number (second (regexp-split #rx"[&;=]" hardware-desc)))) ; split string by any of &;= and return the 2nd item
 
 ;; Returns a list of tokens extracted from the machine's string representation
 ;; hardware-desc is a string such as "?lvl=1&code=c12:6f3;c12:7f3;c12:8f3;"
-(define (split-into-tokens hardware-desc)
+(define (hardware-tokens hardware-desc)
   ;; convert "c12:6f3" into ((12 6) c f3)
   (define (conv-notation str)
-    (if (string-null? str)
-        '()
-        (let* ([toks (string-split str '(#\:))]
-               [fst (car toks)]
-               [sec (second toks)])
-          (let ([type (string->symbol (string (string-ref fst 0)))]
-                [col (string->number (substring fst 1 (string-length fst)))]
-                [row (string->number (substring sec 0 (- (string-length sec) 2)))]
-                [dir (string->symbol (substring sec (- (string-length sec) 2) (string-length sec)))])
+    (if (equal? str "")
+        null
+        (let* ((toks (regexp-split #rx":" str))
+               (fst (car toks))
+               (sec (second toks)))
+          (let ((type (string->symbol (string (string-ref fst 0))))
+                (col (string->number (substring fst 1 (string-length fst))))
+                (row (string->number (substring sec 0 (- (string-length sec) 2))))
+                (dir (string->symbol (substring sec (- (string-length sec) 2) (string-length sec)))))
             (list (list col row) type dir)))))
 
-  (let ([toks (cdddr (string-split hardware-desc '(#\; #\& #\=)))])   ; remove first 2 elements
+  (let ((toks (cdddr (regexp-split #rx"[&;=]" hardware-desc))))   ; remove first 3 elements
     ;; add basket token (ending token)
     (filter (lambda (x) (not (null? x)))
             (append (map conv-notation toks) (list (basket-tok (get-level hardware-desc)))))))
@@ -154,11 +150,11 @@
 
 ;; Translates the f0..f4 into more verbose symbols
 (define (one-way-dir dir)
-  (cond [(eq? dir 'f0) 'right->left]
-        [(eq? dir 'f1) 'bottom->top]
-        [(eq? dir 'f2) 'left->right]
-        [(eq? dir 'f3) 'top->bottom]
-        [else null]))
+  (cond ((eq? dir 'f0) 'right->left)
+        ((eq? dir 'f1) 'bottom->top)
+        ((eq? dir 'f2) 'left->right)
+        ((eq? dir 'f3) 'top->bottom)
+        (else null)))
 
 ;; Returns the direction to take based on the token's orientation and the
 ;; first color in tape
@@ -192,9 +188,9 @@
 ;; Returns the code for a branch (tokens 'p and 'q)
 (define (branch-code token tokens)
   (define (branch color tape)
-    (let ([tok (get-token (next-pos (token-pos token)
+    (let ((tok (get-token (next-pos (token-pos token)
                                     (next-branch-dir (list color) token))
-                          tokens)])
+                          tokens)))
       (if (null? tok) 
           '(reject tape-tail) 
           (if (basket? tok)
@@ -205,23 +201,23 @@
                 ,tape)))))
 
   `(define (,(token-id token) tape)
-     (let ([color (next tape)]
-           [tape-tail (tail tape)])
-       ,(cond [(blue-red-branch? token)
-               `(cond [(blue? color) ,(branch 'b 'tape-tail)]
-                      [(red? color) ,(branch 'r 'tape-tail)]
-                      [else ,(branch null 'tape)])]  ; maybe green or yellow
-              [(green-yellow-branch? token)
-               `(cond [(green? color) ,(branch 'g 'tape-tail)]
-                      [(yellow? color) ,(branch 'y 'tape-tail)]
-                      [else ,(branch null 'tape)])] ; maybe red or green
-              [else raise("Invalid token color")]))))
+     (let ((color (next tape))
+           (tape-tail (tail tape)))
+       ,(cond ((blue-red-branch? token)
+               `(cond ((blue? color) ,(branch 'b 'tape-tail))
+                      ((red? color) ,(branch 'r 'tape-tail))
+                      (else ,(branch null 'tape))))  ; maybe green or yellow
+              ((green-yellow-branch? token)
+               `(cond ((green? color) ,(branch 'g 'tape-tail))
+                      ((yellow? color) ,(branch 'y 'tape-tail))
+                      (else ,(branch null 'tape)))) ; maybe red or green
+              (else raise("Invalid token color"))))))
 
 ;; Returns the code for the writers (tokens 'b 'r 'g and 'y)
 (define (writer-code token tokens)
   `(define (,(token-id token) tape)
-     ,(let ([tok (get-token (next-pos (token-pos token) (one-way-dir (token-dir token)))
-                            tokens)])
+     ,(let ((tok (get-token (next-pos (token-pos token) (one-way-dir (token-dir token)))
+                            tokens)))
         (if (null? tok) 
             '(reject tape) 
             (if (basket? tok)
@@ -241,21 +237,21 @@
 
 ;; Returns the next position in direction dir from position pos
 (define (next-pos pos dir)
-  (let ([col (first pos)]
-        [row (second pos)])
-    (cond [(or (eq? dir 'right->left)
+  (let ((col (first pos))
+        (row (second pos)))
+    (cond ((or (eq? dir 'right->left)
                (eq? dir 'left))
-           (list (- col 1) row)]
-          [(or (eq? dir 'bottom->top)
+           (list (- col 1) row))
+          ((or (eq? dir 'bottom->top)
                (eq? dir 'up)) 
-           (list col (- row 1))]
-          [(or (eq? dir 'left->right) 
+           (list col (- row 1)))
+          ((or (eq? dir 'left->right) 
                (eq? dir 'right)) 
-           (list (+ col 1) row)]
-          [(or (eq? dir 'top->bottom) 
+           (list (+ col 1) row))
+          ((or (eq? dir 'top->bottom) 
                (eq? dir 'down)) 
-           (list col (+ row 1))]
-          [else null])))
+           (list col (+ row 1)))
+          (else null))))
 
 ;; Returns the first non carrier token, when starting at token one-way-token.
 ;; one-way-token should be of type carrier or writer.
@@ -267,7 +263,7 @@
                              (one-way-dir (token-dir one-way-token)))
                    tokens)))
 
-  (let ([next (next-token one-way-token)])
+  (let ((next (next-token one-way-token)))
     (if (null? next)
         null
         (if (carrier? next)
@@ -283,10 +279,10 @@
   (define (writer-defs tokens)
     (map (lambda (tok) (writer-code tok tokens)) (filter writer? tokens)))
 
-  (let* ([level (get-level hardware-desc)]
-         [spos (get-start-pos level)]
-         [tokens (split-into-tokens hardware-desc)]
-         [token (get-token spos tokens)])
+  (let* ((level (get-level hardware-desc))
+         (start-pos (get-start-pos level))
+         (tokens (hardware-tokens hardware-desc))
+         (token (get-token start-pos tokens)))
     (append '(lambda (tape))
             (helper-defs)
             (branch-defs tokens)
@@ -298,95 +294,19 @@
                               token))
                tape)))))
 
-;; Returns the dot code for a branch (tokens 'p and 'q)
-(define (branch-dot token tokens)
-  (define (branch color id)
-    (let ([tok (get-token (next-pos (token-pos token)
-                                    (next-branch-dir (list color) token))
-                          tokens)])
-      (if (null? tok) 
-          (list id 'reject color) 
-          (if (basket? tok)
-              (list id 'accept color) 
-              (list id 
-                    (token-id (if (carrier? tok) 
-                                  (advance tok tokens) 
-                                  tok))
-                    color)))))
-
-  (let ([id (token-id token)])
-    (cond [(blue-red-branch? token)
-           (list (branch 'b id)
-                 (branch 'r id)
-                 (branch null id))]  ; maybe green or yellow
-          [(green-yellow-branch? token)
-           (list (branch 'g id)
-                 (branch 'y id)
-                 (branch null id))] ; maybe red or green
-          [else raise("Invalid token color")])))
-
-;; Returns the dot code for the writers (tokens 'b 'r 'g and 'y)
-(define (writer-dot token tokens)
-  (let ([id (token-id token)]
-        [tok (get-token (next-pos (token-pos token) (one-way-dir (token-dir token)))
-                        tokens)])
-    (if (null? tok) 
-        (list id 'reject) 
-        (if (basket? tok)
-            (list id 'accept) 
-            (list id (token-id (if (carrier? tok) 
-                                   (advance tok tokens) 
-                                   tok)))))))
-
-;; Returns a list with the machine's code
-(define (to-dot hardware-desc)
-
-  (define (branch-defs tokens)
-    (map (lambda (tok) (branch-dot tok tokens)) (filter branch? tokens)))
-
-  (define (writer-defs tokens)
-    (map (lambda (tok) (writer-dot tok tokens)) (filter writer? tokens)))
-
-  (let* ([level (get-level hardware-desc)]
-         [spos (get-start-pos level)]
-         [tokens (split-into-tokens hardware-desc)]
-         [token (get-token spos tokens)])
-    (append '(graph)
-            (branch-defs tokens)
-            (writer-defs tokens)
-            (list 'start (token-id (if (carrier? token) 
-                                       (advance token tokens) 
-                                       token))))))
-
 (define (run machine tape)
   ;; see http://docs.racket-lang.org/guide/eval.html#(part._namespaces)
   ;; for help on make-base-namespace
-  ;;((eval machine (make-base-namespace) tape)))
-  ((eval machine) tape))
+  ((eval machine (make-base-namespace)) tape))
+  ;; ((eval machine) tape))
 
 )     ; module
 
-;; sample usage:
-;; (require 'manufactoria)
-
+;; Sample usage:
+;; (require "manufactoria.rkt")
 ;; (define hw "?lvl=25&code=c12:5f3;c12:9f3;p12:6f3;g11:6f1;c11:5f2;y13:6f1;c13:5f0;c12:7f3;q12:8f3;c13:7f0;c11:7f2;r13:8f1;b11:8f1;")
-
 ;; (define machine (build-machine hw))
-
-;; ;; run it!
+;; Run it!
 ;; (run machine '(b r b))
-
-;; ;; show machine's code
+;; Show machine's code
 ;; machine
-
-;; ;; (define body (cddr machine))
-;; ;; (define (define? def)
-;; ;;   (eq? (car def) 'define))
-;; ;; (define (fn? def)
-;; ;;   (string=? "fn-" (substring (symbol->string (caadr def)) 0 3)))
-
-;; ;; (filter fn? (filter define? body))
-
-;; ;; ;(filter (lambda (x) (string=? "fn-" (substring (symbol->string (caadr x)) 0 3))) (filter (lambda (x) (eq? (car x) 'define)) (cddr machine)))
-;; ;; (cdr machine)
-;; (to-dot hw)
