@@ -1,8 +1,7 @@
 (module manufactoria-dot racket
         (provide to-dot)
 
-(require (only-in "manufactoria.rkt"
-                  ))                    ;TODO complete here
+(require "hardware-parser.rkt")
 
 ;; TODO: Finish all
 
@@ -31,7 +30,7 @@
            (list (branch 'g id)
                  (branch 'y id)
                  (branch null id))) ; maybe red or green
-          (else raise("Invalid token color")))))
+          (else raise "Invalid token color"))))
 
 ;; Returns the dot code for the writers (tokens 'b 'r 'g and 'y)
 (define (writer-dot token tokens)
@@ -57,7 +56,7 @@
 
   (let* ((level (get-level hardware-desc))
          (spos (get-start-pos level))
-         (tokens (split-into-tokens hardware-desc))
+         (tokens (hardware-tokens hardware-desc))
          (token (get-token spos tokens)))
     (append '(graph)
             (branch-defs tokens)
@@ -65,4 +64,4 @@
             (list 'start (token-id (if (carrier? token) 
                                        (advance token tokens) 
                                        token))))))
-
+)    ; module
