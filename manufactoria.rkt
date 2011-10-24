@@ -1,37 +1,32 @@
 ;; Manufactoria
 
-;; program that generates the function representing the machine
+;; Elements
+;; Writers: b (blue)
+;;          r (red) 
+;;          g (green)
+;;          y (yellow)
+;; Carrier: c
+;; Directions:
+;;  f0 right to left
+;;  f1 bottom to top
+;;  f2 left to right
+;;  f3 top to bottom
 
-;; elements
-;; writers (blue, red, green, yellow)
-;; b
-;; r
-;; g
-;; y
-;; c carrier
-;; directions
-;; f0 right to left
-;; f1 bottom to top
-;; f2 left to right
-;; f3 top to bottom
-;; branches
-;; p (blue & red)
-;; q (yellow & green)
-;; directions:
-;; f0 left
-;; f1 up
-;; f2 right
-;; f3 down
-;; f6 inverted right
-;; [element][column]:[row][direction];
-;; in clockwise direction at angle 0
-;; f0 for branches (in yellow none green) (in blue none red)
-;; f1 rotate clockwise (yellow none green in) (blue none red in)
-;; f4 (flip) (in green none yellow) (in red none blue) 
-;; f5 rotate clockwise (green none yellow in) (red none blue in)
-;; f8
-
-;; Check file manufactoria-test.rkt for usage examples
+;; Branches: p (blue & red)
+;;           q (yellow & green)
+;; Directions:
+;;  f0 left
+;;  f1 up
+;;  f2 right
+;;  f3 down
+;;  f6 inverted right
+;;  [element][column]:[row][direction];
+;;  in clockwise direction at angle 0
+;;  f0 for branches (in yellow none green) (in blue none red)
+;;  f1 rotate clockwise (yellow none green in) (blue none red in)
+;;  f4 (flip) (in green none yellow) (in red none blue) 
+;;  f5 rotate clockwise (green none yellow in) (red none blue in)
+;;  f8
 
 (module manufactoria racket
         (provide build-machine
