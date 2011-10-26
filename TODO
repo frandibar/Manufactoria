@@ -1,0 +1,5 @@
+TODO list:
+
+* finish dot tests
+* modify manufactoria-dot.rkt to use dot.rkt
+* do manufactoria-dot tests

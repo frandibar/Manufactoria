@@ -4,27 +4,43 @@
 (require rackunit)
 (require rackunit/text-ui)
 
-(require (only-in "manufactoria-dot.rkt"
-                  to-dot))
-;; (require/expose "manufactoria-dot.rkt" (token-id))
-
-;; (define manufactoria-dot-internals-test-suite
-;;   (test-suite "Tests for manufactoria-dot.rkt internals"
-;;               (test-case "token-id"
-;;                          (let ((token (list '(1 2) 'basket null)))
-;;                            (check-equal? (token-id token) 'basket-1-2) "Test 1")
-;;                          )))
-
-(define manufactoria-dot-test-suite 
-  (test-suite "Tests for manufactoria-dot.rkt"
-
-              (test-case "Robotoast! l1 - Accept everything"
-                         (let ((machine "?lvl=1&code=c12:6f3;c12:7f3;c12:8f3;"))
-                           (check-equal? (to-dot machine) "TODO!")
+(require "dot.rkt")
+(require/expose "dot.rkt" (dot-name
+                           dot-label
+                           nodes->dot
+                           edges->dot
+                           undirected-edges->dot
+                           graph->dot
+                           dot->png
                            ))
-              )
-  )
 
-;; (run-tests manufactoria-dot-internals-test-suite)
-(run-tests manufactoria-dot-test-suite)
+(define dot-internals-test-suite
+  (test-suite "Tests for dot.rkt internals"
+              (test-case "dot-name"
+                         (check-equal? (dot-name 'my-living-room) "my_living_room"))
+              (test-case "dot-label"
+                         (check-equal? (dot-label "123456789012345678901234567890") "123456789012345678901234567890")
+                         (check-equal? (dot-label "1234567890123456789012345678901") "123456789012345678901234567890..."))
+              (test-case "nodes->dot"
+                         (check-equal? (nodes->dot '((a "node-a") (b "node-b"))) ""))
+              ))
+              ;; (test-case "edges->dot")
+              ;; (test-case "undirected-edges->dot")
+              ;; (test-case "graph->dot")
+              ;; (test-case "dot->png")
+
+
+;; (define dot-test-suite 
+;;   (test-suite "Tests for dot.rkt"
+
+;;               (test-case "graph->png"
+;;                          (let ((nodes '())
+;;                                (edges '()))
+;;                            (check-true (graph->png "test.png" nodes edges false))
+;;                            ))
+;;               )
+;;   )
+
+(run-tests dot-internals-test-suite)
+;; (run-tests dot-test-suite)
 

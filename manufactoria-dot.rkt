@@ -2,8 +2,7 @@
         (provide to-dot)
 
 (require "hardware-parser.rkt")
-
-;; TODO: Finish all
+(require "dot.rkt")
 
 ;; Returns the dot code for a branch (tokens 'p and 'q)
 (define (branch-dot token tokens)
@@ -45,7 +44,6 @@
                                    (advance tok tokens) 
                                    tok)))))))
 
-;; Returns a list with the machine's code
 (define (to-dot hardware-desc)
 
   (define (branch-defs tokens)
