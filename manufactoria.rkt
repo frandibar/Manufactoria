@@ -31,6 +31,7 @@
                                     (next-branch-dir (list color) token))
                           tokens)))
       (if (null? tok) 
+          ;; TODO I think tape should go instead of tape-tail, since the else clause in conditionals doesn't eat input
           '(reject tape-tail) 
           (if (basket? tok)
               `(accept ,tape) 

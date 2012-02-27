@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [13/17]
+* Levels [14/18]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -10,7 +10,7 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :PROPERTIES:
    :objective:   Move robots from the entrance (top) to the exit (bottom)
    :time:     546:04
-   :parts:    5
+   :parts:    3
    :solution: ?lvl=1&code=c12:6f3;c12:7f3;c12:8f3;
    :image:    [[file:robotoast.png]]
    :test:     '(b r b)
@@ -34,9 +34,9 @@ The resulting machine in scheme looks like
 ** DONE Robocoffee!
    :PROPERTIES:
    :objective: If a robot's string starts with blue, accept. Otherwise reject!
-   :time:     614:18
-   :parts:    5
-   :solution: ?lvl=2&code=c13:7f3;c13:8f3;c13:9f0;p13:6f2;c12:6f2;
+   :time:     409:32
+   :parts:    3
+   :solution: ?lvl=2&code=p12:6f2;c12:7f3;c12:8f3;
    :image:    [[file:robocoffee.png]]
    :test:     '((b r) (r b))
    :END:
@@ -64,9 +64,9 @@ The resulting machine in scheme looks like
 ** DONE Robolamp!
    :PROPERTIES:
    :objective: ACCEPT: if there are three or more blues!
-   :time:     3234:35
-   :parts:    16
-   :solution: ?lvl=3&code=c12:5f3;p12:6f3;c13:5f0;c13:6f1;c11:6f0;p10:7f3;c9:7f3;c10:6f3;c11:7f1;c9:9f2;c10:9f2;c9:8f3;c11:8f3;c11:9f2;c12:8f0;p12:9f2;
+   :time:     1887:24
+   :parts:    10
+   :solution: ?lvl=3&code=c11:9f2;p12:9f2;p12:5f3;c13:5f0;c12:8f3;p11:5f4;c11:4f3;c11:6f3;c11:7f3;c11:8f3;
    :image:    [[file:robolamp.png]]
    :test:     '((r r r r r r r b b b) (r r r r r r r r b b))
    :END:
@@ -106,9 +106,9 @@ The resulting machine in scheme looks like
 ** DONE Robofish!
    :PROPERTIES:
    :objective: ACCEPT: if a robot contains NO red!
-   :time:     1091:16
-   :parts:    5
-   :solution: ?lvl=4&code=p12:8f3;c12:6f3;c12:7f3;c11:8f1;c11:7f2;
+   :time:     818:40
+   :parts:    4
+   :solution: ?lvl=4&code=p12:8f3;c12:6f3;c12:7f3;c11:8f2;
    :image:    [[file:robofish.png]]
    :test:     '((b b b b b b b b b b) (b b b b b b b b r b))
    :END:
@@ -136,9 +136,9 @@ The resulting machine in scheme looks like
 ** DONE Robobugs!
    :PROPERTIES:
    :objective: ACCEPT: if the tape has only alternating colors!
-   :time:     958:14
-   :parts:    25
-   :solution: ?lvl=5&code=c12:4f3;c12:8f3;c12:9f3;c12:10f3;p12:6f3;c12:7f3;c12:5f3;c11:6f0;p10:6f0;p10:7f0;c9:6f3;c9:7f3;c9:8f3;c9:9f2;c10:9f2;c11:9f2;c13:6f2;p14:6f2;p14:7f2;c15:6f3;c15:7f3;c15:8f3;c15:9f0;c14:9f0;c13:9f0;
+   :time:     821:20
+   :parts:    21
+   :solution: ?lvl=5&code=c12:4f3;c12:8f3;c12:9f3;c12:10f3;p12:6f3;c12:7f3;c12:5f3;c10:6f3;c10:7f3;c10:8f3;c10:9f2;p11:6f0;p11:7f0;c11:9f2;p13:6f2;p13:7f2;c13:9f0;c14:6f3;c14:7f3;c14:8f3;c14:9f0;
    :image:    [[file:robobugs.png]]
    :test:     '((b r b r b r b r b r b r) (b r b r b r b r b b r r))
    :END:
@@ -190,9 +190,9 @@ The resulting machine in scheme looks like
 ** DONE Robocats!
    :PROPERTIES:
    :objective: ACCEPT: if the tape ends with two blues!
-   :time:     7714:18
-   :parts:    23
-   :solution: ?lvl=6&code=c10:10f3;c10:11f2;c11:11f2;c11:5f3;c12:4f3;p12:5f3;c13:4f0;c13:5f1;c13:6f1;c11:6f3;p11:7f3;c12:7f2;c9:7f2;c13:7f1;c9:9f1;p10:9f3;c9:8f1;c10:8f3;c11:9f2;c12:9f2;c13:8f1;c13:9f1;c10:7f3;
+   :time:     5597:56
+   :parts:    17
+   :solution: ?lvl=6&code=c11:5f3;c12:4f3;p12:5f3;c13:6f1;c11:6f3;p11:7f3;c12:7f2;c13:7f1;c10:8f3;c13:8f1;c13:9f1;c10:7f3;c13:5f0;c10:9f2;p12:9f3;c11:9f2;c12:10f3;
    :image:    [[file:robocats.png]]
    :test:     '((b r b r r b r r b) (b r b r b r r b b))
    :END:
@@ -232,9 +232,9 @@ The resulting machine in scheme looks like
 ** DONE Robobears!
    :PROPERTIES:
    :objective: ACCEPT: Strings that begin and end with the same color!
-   :time:     9079:44
-   :parts:    47
-   :solution: ?lvl=7&code=p12:4f3;c12:10f3;c11:4f0;c13:4f2;c12:5f3;c12:6f3;c12:7f3;c12:8f3;c12:9f3;c10:4f0;c8:4f3;c8:5f3;c9:4f0;c11:7f1;c11:5f1;c16:4f3;c16:5f3;c14:4f2;c15:4f2;c13:7f1;c13:5f1;c8:6f3;c8:7f3;c8:8f2;c9:6f3;c9:7f2;c9:8f2;c9:9f1;p10:6f1;c10:7f1;p10:8f2;c10:9f0;c11:6f1;c11:8f2;c13:6f1;c13:8f0;p14:6f1;c14:7f1;p14:8f0;c14:9f2;c15:6f3;c15:7f0;c15:8f0;c15:9f1;c16:6f3;c16:7f3;c16:8f0;
+   :time:     4164:18
+   :parts:    29
+   :solution: ?lvl=7&code=c12:10f3;c12:6f3;c12:7f3;c12:9f3;c10:9f1;c14:9f1;p14:8f6;c13:8f2;c15:8f3;c15:9f3;c13:10f0;c14:10f0;c15:10f0;p12:8f3;c12:4f3;c11:8f0;p10:8f4;c9:8f3;c9:9f3;c9:10f2;c10:10f2;c11:10f2;c12:5f3;p10:7f1;c9:7f2;c11:7f3;p14:7f1;c15:7f0;c13:7f3;
    :image:    [[file:robobears.png]]
    :test:     '((b r b r r r b r r r b r b) (b r b r r r b r r r b b r))
    :END:
@@ -317,9 +317,9 @@ The resulting machine in scheme looks like
 ** DONE Robocars!
    :PROPERTIES:
    :objective: OUTPUT: Replace blue with green, and red with yellow!
-   :time:     12834:18
-   :parts:    17
-   :solution: ?lvl=9&code=g11:6f3;p12:6f3;y13:6f3;c12:7f3;c12:8f3;c12:9f3;c10:6f1;c14:6f1;c14:5f0;c13:5f0;c10:5f2;c11:5f2;c12:5f3;c11:7f0;c10:7f1;c14:7f1;c13:7f2;
+   :time:     3822:54
+   :parts:    7
+   :solution: ?lvl=9&code=p12:6f3;c12:7f3;c12:8f3;c12:9f3;c12:5f3;g11:6f2;y13:6f0;
    :image:    [[file:robocars.png]]
    :test:     '(r b r b r r r b)
    :END:
@@ -349,9 +349,9 @@ The resulting machine in scheme looks like
 ** DONE Robostilts!
    :PROPERTIES:
    :objective: OUTPUT: Put a green at the beginning, and a yellow at the end!
-   :time:     1570:06
-   :parts:    12
-   :solution: ?lvl=10&code=g12:4f2;p12:6f3;b11:6f1;r13:6f1;c11:5f2;c13:5f0;c12:5f3;y12:7f3;c12:8f3;c12:9f3;c12:10f3;c13:4f3;
+   :time:     887:24
+   :parts:    9
+   :solution: ?lvl=10&code=p12:6f3;c12:5f3;y12:7f3;c12:8f3;c12:9f3;c12:10f3;b11:6f2;r13:6f0;g12:4f3;
    :image:    [[file:robostilts.png]]
    :test:     '(r r b r b r b b r)
    :END:
@@ -383,58 +383,15 @@ The resulting machine in scheme looks like
 ** DONE Milidogs!
    :PROPERTIES:
    :objective: ACCEPT: With blue as 1 and red as 0, accept odd binary strings!
-   :time:     10581:21
-   :parts:    24
-   :solution: ?lvl=11&code=p11:8f2;c12:8f3;c12:9f3;c10:5f3;c10:6f3;c10:7f3;c12:5f0;c11:5f0;c10:9f1;c10:8f2;c11:9f0;c11:7f2;c12:7f2;p13:7f2;c13:8f2;c14:5f0;c13:5f0;c15:6f1;c15:7f1;c15:8f1;c14:8f2;c15:5f0;c13:6f0;c12:6f3;
+   :time:     3549:48
+   :parts:    9
+   :solution: ?lvl=11&code=c12:7f3;c12:8f3;c12:9f3;c11:6f2;p12:6f3;c12:5f3;c13:5f0;p13:6f6;c13:7f1;
    :image:    [[file:milidogs.png]]
    :test:     '((b r r r r b r b) (b r r r r b b r))
    :END:
 
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-12-4 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-10-8 tape-tail))
-          ((red? color) (p-14-8 tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (p-10-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-10-8 tape-tail))
-          ((red? color) (p-10-6 tape-tail))
-          (else (reject tape-tail)))))
-     (define (p-10-8 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-10-8 tape-tail))
-          ((red? color) (p-10-6 tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (p-14-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-14-6 tape-tail))
-          ((red? color) (p-14-8 tape-tail))
-          (else (reject tape-tail)))))
-     (define (p-14-8 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-14-6 tape-tail))
-          ((red? color) (p-14-8 tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (basket-12-11 tape) (accept tape))
-     (p-12-4 tape))
-#+end_src
-
 ** TODO Androids!
+   :PROPERTIES:
    :objective: ACCEPT: Some number of blue, then the same number of red!
    :time:     -
    :parts:    -
@@ -464,14 +421,14 @@ The resulting machine in scheme looks like
    :test:     -
    :END:
 
-** TODO Robotanks!
+** DONE Robotanks!
    :PROPERTIES:
    :objective: ACCEPT: With blue as 1 and red as 0, accept binary strings > 15!
-   :time:     -
-   :parts:    -
-   :solution: -
-   :image:    [[file:x.png]]
-   :test:     '(b b b b b)
+   :time:     391:31
+   :parts:    34
+   :solution: ?lvl=15&code=p12:3f3;c13:3f0;p12:10f2;c12:9f2;c13:9f2;c12:11f3;c14:10f3;c14:11f0;c13:11f0;c14:9f3;p11:3f0;c11:2f0;c10:2f0;c9:2f3;c9:3f3;c9:4f2;c9:5f3;c10:4f3;p10:5f3;c11:4f0;c11:5f3;c9:7f2;c9:8f3;c10:7f3;p10:8f3;c11:7f0;c9:6f3;c11:6f3;c9:9f3;c9:10f2;c10:10f2;c11:10f2;c11:8f3;c11:9f3;
+   :image:    [[file:robotanks.png]]
+   :test:     '((r r r r r b b b b) (r r r r b b b b r))
    :END:
 
 ** Unknown
@@ -567,9 +524,9 @@ The resulting machine in scheme looks like
 ** DONE Roborockets!
    :PROPERTIES:
    :objective: OUTPUT: Swap blue for red, and red for blue!
-   :time:     12834:18
-   :parts:    13
-   :solution: ?lvl=25&code=c12:5f3;c12:9f3;p12:6f3;g11:6f1;c11:5f2;y13:6f1;c13:5f0;c12:7f3;q12:8f3;c13:7f0;c11:7f2;r13:8f1;b11:8f1;
+   :time:     6826:42
+   :parts:    9
+   :solution: ?lvl=25&code=c12:5f3;c12:9f3;p12:6f3;c12:7f3;q12:8f3;g11:6f2;y13:6f0;b11:8f2;r13:8f0;
    :image:    [[file:roborockets.png]]
    :test:     '(b b r b r r)
    :END:
@@ -607,9 +564,9 @@ The resulting machine in scheme looks like
 ** DONE Roboplanes!
    :PROPERTIES:
    :objective: OUTPUT: All of the blue, but none of the red!
-   :time:     921:42
-   :parts:    11
-   :solution: ?lvl=26&code=p12:6f3;g11:6f1;c13:5f0;c12:5f3;c13:6f1;c11:5f2;q12:8f3;c12:7f3;b13:8f1;c13:7f0;c12:9f3;
+   :time:     512:00
+   :parts:    8
+   :solution: ?lvl=26&code=p12:6f3;c12:5f3;q12:8f3;c12:7f3;c12:9f3;g11:6f2;c13:6f0;b13:8f0;
    :image:    [[file:roboplanes.png]]
    :test:     '(r r b r r b b b r)
    :END:
