@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [14/18]
+* Levels [15/17]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -451,16 +451,17 @@ The resulting machine in scheme looks like
    :test:     -
    :END:
 
-** TODO Rocket Planes!
+** DONE Rocket Planes!
    :PROPERTIES:
    :objective: OUTPUT: The input, but with all blues moved to the front!
-   :time:     -
-   :parts:    -
-   :solution: -
-   :image:    [[file:x.png]]
-   :test:     '()
+   :time:     1607:32
+   :parts:    27
+   :solution: ?lvl=27&code=c11:11f2;c13:4f0;c14:4f0;g12:4f0;p11:4f0;b11:3f3;q9:4f0;c9:5f3;c10:4f0;c10:11f2;c10:10f3;r10:5f2;p11:5f7;r11:6f3;c10:9f3;c9:6f3;c10:8f3;b12:5f3;p12:6f6;r12:7f1;r13:6f2;c14:5f1;q14:6f2;q11:8f7;c11:7f3;c9:8f2;c9:7f3;
+   :image:    [[file:rocketplanes.png]]
+   :test:     '(r b r b r b r r b r)
    :END:
 
+   The solution involves having a green end flag, and for each red we encounter, we send it to the end and start over again.
 ** Unknown
    :PROPERTIES:
    :objective: -
