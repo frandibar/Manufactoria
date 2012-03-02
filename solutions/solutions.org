@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [15/17]
+* Levels [16/22]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -390,16 +390,17 @@ The resulting machine in scheme looks like
    :test:     '((b r r r r b r b) (b r r r r b b r))
    :END:
 
-** TODO Androids!
+** DONE Androids!
    :PROPERTIES:
    :objective: ACCEPT: Some number of blue, then the same number of red!
-   :time:     -
-   :parts:    -
-   :solution: -
+   :time:     1511:07
+   :parts:    44
+   :solution: ?lvl=17&code=c8:5f1;c11:4f2;c13:7f3;c12:4f3;c13:4f0;c8:7f1;c8:8f1;c8:9f1;c8:10f1;b9:9f3;q9:10f4;r9:11f1;c10:10f0;c8:6f1;c12:7f2;c13:6f2;g11:5f2;p11:6f0;p12:6f3;c11:9f3;c8:4f2;c9:4f2;c10:4f2;c14:4f0;q15:4f4;b15:3f3;r15:5f1;c16:4f0;c16:5f1;p16:6f1;y16:7f1;p15:7f3;c13:11f0;c13:9f3;c15:6f3;c14:6f2;c12:5f3;y10:7f2;c11:7f3;p11:8f7;p10:8f4;c11:10f0;c13:10f3;q13:8f7;
    :image:    [[file:androids.png]]
-   :test:     '()
+   :test:     '((b b b b r r r r) (b b b b r r r))
    :END:
-   Should I accept 0 blues?
+   Method: replace 2 blues with 1 green, discard pair "blue then red" in the transition, and replace the following 2 reds to 1 yellow.
+   The solution has lots of redundancy to avoid cross sections.
 
 ** TODO Robomecha!
    :PROPERTIES:
@@ -410,14 +411,18 @@ The resulting machine in scheme looks like
    :image:    [[file:robomecha.png]]
    :test:     '()
    :END:
+   
+   I have 2 ideas for this one:
+   1. Send the 1st symbol to the back n times, with n the length of the input. The problem with this approach is that I don't know the value of n, thus when to stop.
+   2. Have a termination flag, and remember the previous symbol upon reading. See the example [[file:~/projects/manufactoria/code-to-hardware.rkt::define%20robomecha][here]]. The problem is that this doesn't have a planar representation.
 
-** Unknown
+** TODO Soldiers!
    :PROPERTIES:
-   :objective: -
+   :objective: OUTPUT: With blue as 1 and red as 0, multiply by 8!
    :time:     -
    :parts:    -
    :solution: -
-   :image:    [[file:x.png]]
+   :image:    [[file:soldiers.png]]
    :test:     -
    :END:
 
@@ -431,23 +436,32 @@ The resulting machine in scheme looks like
    :test:     '((r r r r r b b b b) (r r r r b b b b r))
    :END:
 
-** Unknown
+** TODO Robo-children!
    :PROPERTIES:
-   :objective: -
+   :objective: ACCEPT: An equal number of blue and red, in any order!
    :time:     -
    :parts:    -
    :solution: -
-   :image:    [[file:x.png]]
+   :image:    [[file:robochildren.png]]
    :test:     -
    :END:
 
-** Unknown
+** TODO Police!
    :PROPERTIES:
-   :objective: -
+   :objective: OUTPUT: Put a yellow in the middle of the (even-length) string!
    :time:     -
    :parts:    -
    :solution: -
-   :image:    [[file:x.png]]
+   :image:    [[file:police.png]]
+   :test:     -
+   :END:
+** TODO Teachers!
+   :PROPERTIES:
+   :objective: ACCEPT: X blue, then X red, then X more blue, for any X!
+   :time:     -
+   :parts:    -
+   :solution: -
+   :image:    [[file:teachers.png]]
    :test:     -
    :END:
 
@@ -462,15 +476,6 @@ The resulting machine in scheme looks like
    :END:
 
    The solution involves having a green end flag, and for each red we encounter, we send it to the end and start over again.
-** Unknown
-   :PROPERTIES:
-   :objective: -
-   :time:     -
-   :parts:    -
-   :solution: -
-   :image:    [[file:x.png]]
-   :test:     -
-   :END:
 
 ** Unknown
    :PROPERTIES:
@@ -482,13 +487,13 @@ The resulting machine in scheme looks like
    :test:     -
    :END:
 
-** Unknown
+** TODO Robospies!
    :PROPERTIES:
-   :objective: -
+   :objective: ACCEPT: With blue as 1 and red as 0, accept natural powers of four.
    :time:     -
    :parts:    -
    :solution: -
-   :image:    [[file:x.png]]
+   :image:    [[file:robospies.png]]
    :test:     -
    :END:
 
