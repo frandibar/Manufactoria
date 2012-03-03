@@ -16,7 +16,7 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :test:     '(b r b)
    :END:
 
-The resulting machine in scheme looks like
+   The resulting machine in scheme looks like
 #+begin_src scheme
   '(lambda (tape)
      (define (blue? color) (eq? color 'b))
@@ -41,152 +41,36 @@ The resulting machine in scheme looks like
    :test:     '((b r) (r b))
    :END:
 
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-13-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (basket-12-9 tape-tail))
-          ((red? color) (reject tape-tail))
-          (else (reject tape-tail)))))
-     (define (basket-12-9 tape) (accept tape))
-     (p-13-6 tape))
-#+end_src   
-
 ** DONE Robolamp!
    :PROPERTIES:
    :objective: ACCEPT: if there are three or more blues!
-   :time:     1887:24
-   :parts:    10
+   :time:     1873:06
+   :parts:    9
    :solution: ?lvl=3&code=c11:9f2;p12:9f2;p12:5f3;c13:5f0;c12:8f3;p11:5f4;c11:4f3;c11:6f3;c11:7f3;c11:8f3;
    :image:    [[file:robolamp.png]]
    :test:     '((r r r r r r r b b b) (r r r r r r r r b b))
    :END:
 
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-12-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-10-7 tape-tail))
-          ((red? color) (p-12-6 tape-tail))
-          (else (reject tape-tail)))))
-     (define (p-10-7 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-12-9 tape-tail))
-          ((red? color) (p-10-7 tape-tail))
-          (else (reject tape-tail)))))
-     (define (p-12-9 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (accept tape-tail))
-          ((red? color) (p-12-9 tape-tail))
-          (else (reject tape-tail)))))
-     (define (basket-12-10 tape) (accept tape))
-     (p-12-6 tape))
-#+end_src
-   
 ** DONE Robofish!
    :PROPERTIES:
    :objective: ACCEPT: if a robot contains NO red!
-   :time:     818:40
+   :time:     546:04
    :parts:    4
-   :solution: ?lvl=4&code=p12:8f3;c12:6f3;c12:7f3;c11:8f2;
+   :solution: ?lvl=4&code=c11:6f2;p12:6f3;c12:7f3;c12:8f3;
    :image:    [[file:robofish.png]]
    :test:     '((b b b b b b b b b b) (b b b b b b b b r b))
    :END:
 
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-12-8 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-12-8 tape-tail))
-          ((red? color) (reject tape-tail))
-          (else (accept tape)))))
-     (define (basket-12-9 tape) (accept tape))
-     (p-12-8 tape))
-#+end_src   
-   
 ** DONE Robobugs!
    :PROPERTIES:
    :objective: ACCEPT: if the tape has only alternating colors!
-   :time:     821:20
+   :time:     686:02
    :parts:    21
    :solution: ?lvl=5&code=c12:4f3;c12:8f3;c12:9f3;c12:10f3;p12:6f3;c12:7f3;c12:5f3;c10:6f3;c10:7f3;c10:8f3;c10:9f2;p11:6f0;p11:7f0;c11:9f2;p13:6f2;p13:7f2;c13:9f0;c14:6f3;c14:7f3;c14:8f3;c14:9f0;
    :image:    [[file:robobugs.png]]
    :test:     '((b r b r b r b r b r b r) (b r b r b r b r b b r r))
    :END:
 
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-12-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-10-6 tape-tail))
-          ((red? color) (p-14-6 tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (p-10-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (reject tape-tail))
-          ((red? color) (p-10-7 tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (p-10-7 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-10-6 tape-tail))
-          ((red? color) (reject tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (p-14-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-14-7 tape-tail))
-          ((red? color) (reject tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (p-14-7 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (reject tape-tail))
-          ((red? color) (p-14-6 tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (basket-12-11 tape) (accept tape))
-     (p-12-6 tape))
-#+end_src
-   
 ** DONE Robocats!
    :PROPERTIES:
    :objective: ACCEPT: if the tape ends with two blues!
@@ -197,91 +81,18 @@ The resulting machine in scheme looks like
    :test:     '((b r b r r b r r b) (b r b r b r r b b))
    :END:
 
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-12-5 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-11-7 tape-tail))
-          ((red? color) (p-12-5 tape-tail))
-          (else (reject tape-tail)))))
-     (define (p-11-7 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-10-9 tape-tail))
-          ((red? color) (p-12-5 tape-tail))
-          (else (reject tape-tail)))))
-     (define (p-10-9 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-10-9 tape-tail))
-          ((red? color) (p-12-5 tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (basket-12-11 tape) (accept tape))
-     (p-12-5 tape))
-#+end_src
-
 ** DONE Robobears!
    :PROPERTIES:
    :objective: ACCEPT: Strings that begin and end with the same color!
-   :time:     4164:18
-   :parts:    29
-   :solution: ?lvl=7&code=c12:10f3;c12:6f3;c12:7f3;c12:9f3;c10:9f1;c14:9f1;p14:8f6;c13:8f2;c15:8f3;c15:9f3;c13:10f0;c14:10f0;c15:10f0;p12:8f3;c12:4f3;c11:8f0;p10:8f4;c9:8f3;c9:9f3;c9:10f2;c10:10f2;c11:10f2;c12:5f3;p10:7f1;c9:7f2;c11:7f3;p14:7f1;c15:7f0;c13:7f3;
+   :time:     3140:22
+   :parts:    23
+   :solution: ?lvl=7&code=c12:4f3;p12:5f3;c12:6f3;c12:7f3;c12:8f3;c12:9f3;c12:10f3;c10:5f3;c10:6f3;c10:7f2;c11:3f3;p11:4f4;p11:5f4;c11:6f1;c11:7f2;c13:3f3;p13:4f6;p13:5f6;c13:6f1;c13:7f0;c14:5f3;c14:6f3;c14:7f0;
    :image:    [[file:robobears.png]]
    :test:     '((b r b r r r b r r r b r b) (b r b r r r b r r r b b r))
    :END:
-    
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-12-4 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-10-8 tape-tail))
-          ((red? color) (p-14-8 tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (p-10-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-10-8 tape-tail))
-          ((red? color) (p-10-6 tape-tail))
-          (else (reject tape-tail)))))
-     (define (p-10-8 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-10-8 tape-tail))
-          ((red? color) (p-10-6 tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (p-14-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-14-6 tape-tail))
-          ((red? color) (p-14-8 tape-tail))
-          (else (reject tape-tail)))))
-     (define (p-14-8 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (p-14-6 tape-tail))
-          ((red? color) (p-14-8 tape-tail))
-          (else (basket-12-11 tape)))))
-     (define (basket-12-11 tape) (accept tape))
-     (p-12-4 tape))
-#+end_src
+
+   A string with length 1 is accepted.
+
 ** DONE RC Cars!
    :PROPERTIES:
    :objective: OUTPUT: The input, but with the first symbol at the end!
@@ -291,28 +102,6 @@ The resulting machine in scheme looks like
    :image:    [[file:rccars.png]]
    :test:     '(b r b r b b b r b)
    :END:
-
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-12-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (b-11-6 tape-tail))
-          ((red? color) (r-13-6 tape-tail))
-          (else (basket-12-9 tape)))))
-     (define (b-11-6 tape) (basket-12-9 (append tape (list 'b))))
-     (define (r-13-6 tape) (basket-12-9 (append tape (list 'r))))
-     (define (basket-12-9 tape) (accept tape))
-     (p-12-6 tape))
-#+end_src
 
 ** DONE Robocars!
    :PROPERTIES:
@@ -324,28 +113,6 @@ The resulting machine in scheme looks like
    :test:     '(r b r b r r r b)
    :END:
 
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-12-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (g-11-6 tape-tail))
-          ((red? color) (y-13-6 tape-tail))
-          (else (basket-12-10 tape)))))
-     (define (g-11-6 tape) (p-12-6 (append tape (list 'g))))
-     (define (y-13-6 tape) (p-12-6 (append tape (list 'y))))
-     (define (basket-12-10 tape) (accept tape))
-     (p-12-6 tape))
-#+end_src
-   
 ** DONE Robostilts!
    :PROPERTIES:
    :objective: OUTPUT: Put a green at the beginning, and a yellow at the end!
@@ -356,36 +123,12 @@ The resulting machine in scheme looks like
    :test:     '(r r b r b r b b r)
    :END:
    
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-12-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (b-11-6 tape-tail))
-          ((red? color) (r-13-6 tape-tail))
-          (else (y-12-7 tape)))))
-     (define (g-12-4 tape) (p-12-6 (append tape (list 'g))))
-     (define (b-11-6 tape) (p-12-6 (append tape (list 'b))))
-     (define (r-13-6 tape) (p-12-6 (append tape (list 'r))))
-     (define (y-12-7 tape) (basket-12-11 (append tape (list 'y))))
-     (define (basket-12-11 tape) (accept tape))
-     (g-12-4 tape))
-#+end_src
-
 ** DONE Milidogs!
    :PROPERTIES:
    :objective: ACCEPT: With blue as 1 and red as 0, accept odd binary strings!
    :time:     3549:48
    :parts:    9
-   :solution: ?lvl=11&code=c12:7f3;c12:8f3;c12:9f3;c11:6f2;p12:6f3;c12:5f3;c13:5f0;p13:6f6;c13:7f1;
+   :solution: ?lvl=11&code=p12:6f3;c11:6f2;c12:7f3;c12:8f3;c12:9f3;c12:5f3;p13:6f6;c13:7f1;c13:5f0;
    :image:    [[file:milidogs.png]]
    :test:     '((b r r r r b r b) (b r r r r b b r))
    :END:
@@ -429,9 +172,9 @@ The resulting machine in scheme looks like
 ** DONE Robotanks!
    :PROPERTIES:
    :objective: ACCEPT: With blue as 1 and red as 0, accept binary strings > 15!
-   :time:     391:31
-   :parts:    34
-   :solution: ?lvl=15&code=p12:3f3;c13:3f0;p12:10f2;c12:9f2;c13:9f2;c12:11f3;c14:10f3;c14:11f0;c13:11f0;c14:9f3;p11:3f0;c11:2f0;c10:2f0;c9:2f3;c9:3f3;c9:4f2;c9:5f3;c10:4f3;p10:5f3;c11:4f0;c11:5f3;c9:7f2;c9:8f3;c10:7f3;p10:8f3;c11:7f0;c9:6f3;c11:6f3;c9:9f3;c9:10f2;c10:10f2;c11:10f2;c11:8f3;c11:9f3;
+   :time:     360:32
+   :parts:    30
+   :solution: ?lvl=15&code=p12:3f3;c13:3f0;p12:10f2;c12:9f2;c12:11f3;p11:3f0;c11:2f0;c9:5f3;c10:4f3;p10:5f3;c11:4f0;c11:5f3;c9:7f2;c9:8f3;c10:7f3;p10:8f3;c11:7f0;c9:6f3;c11:6f3;c9:9f3;c9:10f2;c10:10f2;c11:10f2;c11:8f3;c11:9f3;c10:2f3;i10:3f1;c13:9f3;i13:10f5;c13:11f0;
    :image:    [[file:robotanks.png]]
    :test:     '((r r r r r b b b b) (r r r r b b b b r))
    :END:
@@ -537,36 +280,6 @@ The resulting machine in scheme looks like
    :test:     '(b b r b r r)
    :END:
 
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-12-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (g-11-6 tape-tail))
-          ((red? color) (y-13-6 tape-tail))
-          (else (q-12-8 tape)))))
-     (define (q-12-8 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((green? color) (r-13-8 tape-tail))
-          ((yellow? color) (b-11-8 tape-tail))
-          (else (basket-12-10 tape)))))
-     (define (g-11-6 tape) (p-12-6 (append tape (list 'g))))
-     (define (y-13-6 tape) (p-12-6 (append tape (list 'y))))
-     (define (r-13-8 tape) (q-12-8 (append tape (list 'r))))
-     (define (b-11-8 tape) (q-12-8 (append tape (list 'b))))
-     (define (basket-12-10 tape) (accept tape))
-     (p-12-6 tape))
-#+end_src
-
 ** DONE Roboplanes!
    :PROPERTIES:
    :objective: OUTPUT: All of the blue, but none of the red!
@@ -576,34 +289,6 @@ The resulting machine in scheme looks like
    :image:    [[file:roboplanes.png]]
    :test:     '(r r b r r b b b r)
    :END:
-
-#+begin_src scheme
-  '(lambda (tape)
-     (define (blue? color) (eq? color 'b))
-     (define (red? color) (eq? color 'r))
-     (define (green? color) (eq? color 'g))
-     (define (yellow? color) (eq? color 'y))
-     (define (next tape) (if (null? tape) null (car tape)))
-     (define (tail tape) (if (null? tape) null (cdr tape)))
-     (define (accept tape) (list 'accepted tape))
-     (define (reject tape) (list 'rejected tape))
-     (define (p-12-6 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((blue? color) (g-11-6 tape-tail))
-          ((red? color) (p-12-6 tape-tail))
-          (else (q-12-8 tape)))))
-     (define (q-12-8 tape)
-       (let ((color (next tape)) (tape-tail (tail tape)))
-         (cond
-          ((green? color) (b-13-8 tape-tail))
-          ((yellow? color) (reject tape-tail))
-          (else (basket-12-10 tape)))))
-     (define (g-11-6 tape) (p-12-6 (append tape (list 'g))))
-     (define (b-13-8 tape) (q-12-8 (append tape (list 'b))))
-     (define (basket-12-10 tape) (accept tape))
-     (p-12-6 tape))
-#+end_src
 
 ** Unknown
    :PROPERTIES:
