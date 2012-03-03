@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [16/22]
+* Levels [17/22]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -145,19 +145,19 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    Method: replace 2 blues with 1 green, discard pair "blue then red" in the transition, and replace the following 2 reds to 1 yellow.
    The solution has lots of redundancy to avoid cross sections.
 
-** TODO Robomecha!
+** DONE Robomecha!
    :PROPERTIES:
    :objective: OUTPUT: The input, but with the last symbol moved to the front!
-   :time:     -
-   :parts:    -
-   :solution: -
+   :time:     11332:18
+   :parts:    38
+   :solution: ?lvl=28&code=i12:5f5;i12:6f1;p12:4f3;g12:3f3;c13:6f0;r14:3f3;p14:4f2;c13:4f2;c13:5f1;c14:6f0;b10:3f3;p10:4f0;b10:5f2;c11:4f0;i11:5f4;r14:5f3;c9:7f2;c10:7f2;c11:7f2;c12:7f3;c13:7f0;c14:7f0;c15:7f0;q9:4f0;q15:4f6;b11:8f2;p12:8f3;r13:8f0;c12:10f3;c12:11f3;q12:9f7;c11:9f3;c11:10f2;g9:5f3;b9:6f3;g15:5f3;r15:6f3;c11:6f1;
    :image:    [[file:robomecha.png]]
-   :test:     '()
+   :test:     '(r r r b b r b)
    :END:
    
    I have 2 ideas for this one:
-   1. Send the 1st symbol to the back n times, with n the length of the input. The problem with this approach is that I don't know the value of n, thus when to stop.
-   2. Have a termination flag, and remember the previous symbol upon reading. See the example [[file:~/projects/manufactoria/code-to-hardware.rkt::define%20robomecha][here]]. The problem is that this doesn't have a planar representation.
+   1. Have a termination flag, and remember the previous symbol upon reading.
+   2. Send the 1st symbol to the back n times, with n the length of the input. The problem with this approach is that I don't know the value of n, thus when to stop.
 
 ** TODO Soldiers!
    :PROPERTIES:
