@@ -64,9 +64,9 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
 ** DONE Robobugs!
    :PROPERTIES:
    :objective: ACCEPT: if the tape has only alternating colors!
-   :time:     686:02
+   :time:     549:08
    :parts:    21
-   :solution: ?lvl=5&code=c12:4f3;c12:8f3;c12:9f3;c12:10f3;p12:6f3;c12:7f3;c12:5f3;c10:6f3;c10:7f3;c10:8f3;c10:9f2;p11:6f0;p11:7f0;c11:9f2;p13:6f2;p13:7f2;c13:9f0;c14:6f3;c14:7f3;c14:8f3;c14:9f0;
+   :solution: ?lvl=5&code=c12:10f3;p12:4f3;c12:5f3;c12:6f3;c12:7f3;c12:8f3;c12:9f3;c10:4f3;c10:5f3;c10:6f3;c10:7f2;p11:4f0;p11:5f0;c11:7f2;p13:4f2;p13:5f2;c13:7f0;c14:4f3;c14:5f3;c14:6f3;c14:7f0;
    :image:    [[file:robobugs.png]]
    :test:     '((b r b r b r b r b r b r) (b r b r b r b r b b r r))
    :END:
@@ -149,8 +149,8 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :PROPERTIES:
    :objective: OUTPUT: The input, but with the last symbol moved to the front!
    :time:     11332:18
-   :parts:    38
-   :solution: ?lvl=28&code=i12:5f5;i12:6f1;p12:4f3;g12:3f3;c13:6f0;r14:3f3;p14:4f2;c13:4f2;c13:5f1;c14:6f0;b10:3f3;p10:4f0;b10:5f2;c11:4f0;i11:5f4;r14:5f3;c9:7f2;c10:7f2;c11:7f2;c12:7f3;c13:7f0;c14:7f0;c15:7f0;q9:4f0;q15:4f6;b11:8f2;p12:8f3;r13:8f0;c12:10f3;c12:11f3;q12:9f7;c11:9f3;c11:10f2;g9:5f3;b9:6f3;g15:5f3;r15:6f3;c11:6f1;
+   :parts:    25
+   :solution: ?lvl=28&code=g12:3f3;c12:6f3;p12:5f3;c12:4f3;c10:4f2;i11:4f3;q13:5f6;r14:5f1;c14:4f0;i13:4f2;c12:7f3;q11:5f0;b10:5f1;c11:10f3;c11:11f2;c12:11f3;b11:8f2;p12:8f3;q12:9f7;r13:8f0;g11:6f3;b11:7f2;g13:6f3;r13:7f0;c11:9f3;
    :image:    [[file:robomecha.png]]
    :test:     '(r r r b b r b)
    :END:
@@ -161,7 +161,7 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
 
 ** TODO Soldiers!
    :PROPERTIES:
-   :objective: OUTPUT: With blue as 1 and red as 0, multiply by 8!
+   :objective: OUTPUT: With blue as 1 and red as 0, multiply by 8.
    :time:     -
    :parts:    -
    :solution: -
@@ -275,7 +275,7 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :objective: OUTPUT: Swap blue for red, and red for blue!
    :time:     6826:42
    :parts:    9
-   :solution: ?lvl=25&code=c12:5f3;c12:9f3;p12:6f3;c12:7f3;q12:8f3;g11:6f2;y13:6f0;b11:8f2;r13:8f0;
+   :solution: ?lvl=25&code=c12:5f3;c12:9f3;p12:6f3;c12:7f3;q12:8f3;g11:6f2;y13:6f0;r13:8f0;b11:8f2;
    :image:    [[file:roborockets.png]]
    :test:     '(b b r b r r)
    :END:
