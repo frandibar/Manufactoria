@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [17/23]
+* Levels [19/23]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -132,6 +132,59 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :image:    [[file:milidogs.png]]
    :test:     '((b r r r r b r b) (b r r r r b b r))
    :END:
+   
+** DONE Soldiers!
+   :PROPERTIES:
+   :objective: OUTPUT: With blue as 1 and red as 0, multiply by 8.
+   :time:     1092:00
+   :parts:    7
+   :solution: ?lvl=12&code=r12:4f3;r12:5f3;r12:6f3;c12:7f3;c12:8f3;c12:9f3;c12:10f3;
+   :image:    [[file:soldiers.png]]
+   :test:     '(r b r b b r b r)
+   :END:
+
+** TODO Officers!
+   :PROPERTIES:
+   :objective: OUTPUT: With blue as 1 and red as 0, add 1 to the binary string!
+   :time:     -
+   :parts:    -
+   :solution: ?lvl=13&code=
+   :image:    [[file:officers.png]]
+   :test:     -
+   :END:
+
+** Unknown
+   :PROPERTIES:
+   :objective: -
+   :time:     -
+   :parts:    -
+   :solution: ?lvl=14&code=
+   :image:    [[file:x.png]]
+   :test:     -
+   :END:
+
+** DONE Robotanks!
+   :PROPERTIES:
+   :objective: ACCEPT: With blue as 1 and red as 0, accept binary strings > 15!
+   :time:     360:32
+   :parts:    30
+   :solution: ?lvl=15&code=p12:3f3;c13:3f0;p12:10f2;c12:9f2;c12:11f3;p11:3f0;c11:2f0;c9:5f3;c10:4f3;p10:5f3;c11:4f0;c11:5f3;c9:7f2;c9:8f3;c10:7f3;p10:8f3;c11:7f0;c9:6f3;c11:6f3;c9:9f3;c9:10f2;c10:10f2;c11:10f2;c11:8f3;c11:9f3;c10:2f3;i10:3f1;c13:9f3;i13:10f5;c13:11f0;
+   :image:    [[file:robotanks.png]]
+   :test:     '((r r r r r b b b b) (r r r r b b b b r))
+   :END:
+
+** DONE Robospies!
+   :PROPERTIES:
+   :objective: ACCEPT: With blue as 1 and red as 0, accept natural powers of four.
+   :time:     823:12
+   :parts:    13
+   :solution: ?lvl=16&code=p12:4f3;c13:4f0;c12:8f3;c12:9f3;c12:10f3;c12:7f3;p11:4f0;p11:5f2;c10:4f3;c10:5f3;c10:6f3;c10:7f2;c11:7f2;
+   :image:    [[file:robospies.png]]
+   :test:     '((b r r r r r r r r) (b r r r r r b r r))
+   :END:
+
+   Natural powers of 4 are numbers 4^n with n a natural number.
+   String must end in b or b followed by an even number of r
 
 ** DONE Androids!
    :PROPERTIES:
@@ -148,42 +201,12 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    The following solution could work if it could start with red also.
    ?lvl=17&code=g10:5f2;p10:6f0;c10:7f2;c11:5f2;i11:6f0;c11:7f1;b11:8f0;c12:5f3;p12:6f3;c12:7f3;q12:8f7;c13:5f0;i13:6f3;c13:7f1;y14:5f0;p14:6f2;c14:7f0;c12:4f3;r13:8f3;i12:9f1;c12:10f3;c13:9f0;c11:9f0;c10:9f1;c10:8f0;c10:4f2;c11:4f2;c9:4f2;q9:8f4;r9:9f1;b9:7f3;c8:8f1;c8:7f1;c8:6f1;c8:5f1;c8:4f2;
 
-** DONE Robomecha!
-   :PROPERTIES:
-   :objective: OUTPUT: The input, but with the last symbol moved to the front!
-   :time:     11332:18
-   :parts:    25
-   :solution: ?lvl=28&code=g12:3f3;c12:6f3;p12:5f3;c12:4f3;c10:4f2;i11:4f3;q13:5f6;r14:5f1;c14:4f0;i13:4f2;c12:7f3;q11:5f0;b10:5f1;c11:10f3;c11:11f2;c12:11f3;b11:8f2;p12:8f3;q12:9f7;r13:8f0;g11:6f3;b11:7f2;g13:6f3;r13:7f0;c11:9f3;
-   :image:    [[file:robomecha.png]]
-   :test:     '(r r r b b r b)
-   :END:
-   
-** TODO Soldiers!
-   :PROPERTIES:
-   :objective: OUTPUT: With blue as 1 and red as 0, multiply by 8.
-   :time:     1092:00
-   :parts:    7
-   :solution: ?lvl=12&code=r12:4f3;r12:5f3;r12:6f3;c12:7f3;c12:8f3;c12:9f3;c12:10f3;
-   :image:    [[file:soldiers.png]]
-   :test:     '(r b r b b r b r)
-   :END:
-
-** DONE Robotanks!
-   :PROPERTIES:
-   :objective: ACCEPT: With blue as 1 and red as 0, accept binary strings > 15!
-   :time:     360:32
-   :parts:    30
-   :solution: ?lvl=15&code=p12:3f3;c13:3f0;p12:10f2;c12:9f2;c12:11f3;p11:3f0;c11:2f0;c9:5f3;c10:4f3;p10:5f3;c11:4f0;c11:5f3;c9:7f2;c9:8f3;c10:7f3;p10:8f3;c11:7f0;c9:6f3;c11:6f3;c9:9f3;c9:10f2;c10:10f2;c11:10f2;c11:8f3;c11:9f3;c10:2f3;i10:3f1;c13:9f3;i13:10f5;c13:11f0;
-   :image:    [[file:robotanks.png]]
-   :test:     '((r r r r r b b b b) (r r r r b b b b r))
-   :END:
-
 ** TODO Robo-children!
    :PROPERTIES:
    :objective: ACCEPT: An equal number of blue and red, in any order!
    :time:     -
    :parts:    -
-   :solution: -
+   :solution: ?lvl=18&code=
    :image:    [[file:robochildren.png]]
    :test:     -
    :END:
@@ -193,58 +216,38 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :objective: OUTPUT: Put a yellow in the middle of the (even-length) string!
    :time:     -
    :parts:    -
-   :solution: -
+   :solution: ?lvl=19&code=
    :image:    [[file:police.png]]
    :test:     -
    :END:
+
+   Should I asume that all input strings are even?
+** Unknown
+   :PROPERTIES:
+   :objective: -
+   :time:     -
+   :parts:    -
+   :solution: ?lvl=20&code=
+   :image:    [[file:x.png]]
+   :test:     -
+   :END:
+
 ** TODO Teachers!
    :PROPERTIES:
    :objective: ACCEPT: X blue, then X red, then X more blue, for any X!
    :time:     -
    :parts:    -
-   :solution: -
+   :solution: ?lvl=21&code=
    :image:    [[file:teachers.png]]
    :test:     -
    :END:
 
-** DONE Rocket Planes!
-   :PROPERTIES:
-   :objective: OUTPUT: The input, but with all blues moved to the front!
-   :time:     1607:32
-   :parts:    27
-   :solution: ?lvl=27&code=c11:11f2;c13:4f0;c14:4f0;g12:4f0;p11:4f0;b11:3f3;q9:4f0;c9:5f3;c10:4f0;c10:11f2;c10:10f3;r10:5f2;p11:5f7;r11:6f3;c10:9f3;c9:6f3;c10:8f3;b12:5f3;p12:6f6;r12:7f1;r13:6f2;c14:5f1;q14:6f2;q11:8f7;c11:7f3;c9:8f2;c9:7f3;
-   :image:    [[file:rocketplanes.png]]
-   :test:     '(r b r b r b r r b r)
-   :END:
-
-   The solution involves having a green end flag, and for each red we encounter, we send it to the end and start over again.
-
-** TODO Officers!
-   :PROPERTIES:
-   :objective: OUTPUT: With blue as 1 and red as 0, add 1 to the binary string!
-   :time:     -
-   :parts:    -
-   :solution: -
-   :image:    [[file:officers.png]]
-   :test:     -
-   :END:
-
-** TODO Robospies!
-   :PROPERTIES:
-   :objective: ACCEPT: With blue as 1 and red as 0, accept natural powers of four.
-   :time:     -
-   :parts:    -
-   :solution: -
-   :image:    [[file:robospies.png]]
-   :test:     -
-   :END:
-
 ** Unknown
    :PROPERTIES:
    :objective: -
    :time:     -
    :parts:    -
-   :solution: -
+   :solution: ?lvl=22&code=
    :image:    [[file:x.png]]
    :test:     -
    :END:
@@ -254,7 +257,7 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :objective: -
    :time:     -
    :parts:    -
-   :solution: -
+   :solution: ?lvl=23&code=
    :image:    [[file:x.png]]
    :test:     -
    :END:
@@ -264,7 +267,7 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :objective: -
    :time:     -
    :parts:    -
-   :solution: -
+   :solution: ?lvl=24&code=
    :image:    [[file:x.png]]
    :test:     -
    :END:
@@ -289,12 +292,24 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :test:     '(r r b r r b b b r)
    :END:
 
-** Unknown
+** DONE Rocket Planes!
    :PROPERTIES:
-   :objective: -
-   :time:     -
-   :parts:    -
-   :solution: -
-   :image:    [[file:x.png]]
-   :test:     -
+   :objective: OUTPUT: The input, but with all blues moved to the front!
+   :time:     1607:32
+   :parts:    27
+   :solution: ?lvl=27&code=c11:11f2;c13:4f0;c14:4f0;g12:4f0;p11:4f0;b11:3f3;q9:4f0;c9:5f3;c10:4f0;c10:11f2;c10:10f3;r10:5f2;p11:5f7;r11:6f3;c10:9f3;c9:6f3;c10:8f3;b12:5f3;p12:6f6;r12:7f1;r13:6f2;c14:5f1;q14:6f2;q11:8f7;c11:7f3;c9:8f2;c9:7f3;
+   :image:    [[file:rocketplanes.png]]
+   :test:     '(r b r b r b r r b r)
+   :END:
+
+   The solution involves having a green end flag, and for each red we encounter, we send it to the end and start over again.
+
+** DONE Robomecha!
+   :PROPERTIES:
+   :objective: OUTPUT: The input, but with the last symbol moved to the front!
+   :time:     11332:18
+   :parts:    25
+   :solution: ?lvl=28&code=g12:3f3;c12:6f3;p12:5f3;c12:4f3;c10:4f2;i11:4f3;q13:5f6;r14:5f1;c14:4f0;i13:4f2;c12:7f3;q11:5f0;b10:5f1;c11:10f3;c11:11f2;c12:11f3;b11:8f2;p12:8f3;q12:9f7;r13:8f0;g11:6f3;b11:7f2;g13:6f3;r13:7f0;c11:9f3;
+   :image:    [[file:robomecha.png]]
+   :test:     '(r r r b b r b)
    :END:
