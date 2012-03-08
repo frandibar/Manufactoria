@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [19/23]
+* Levels [20/23]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -201,14 +201,14 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    The following solution could work if it could start with red also.
    ?lvl=17&code=g10:5f2;p10:6f0;c10:7f2;c11:5f2;i11:6f0;c11:7f1;b11:8f0;c12:5f3;p12:6f3;c12:7f3;q12:8f7;c13:5f0;i13:6f3;c13:7f1;y14:5f0;p14:6f2;c14:7f0;c12:4f3;r13:8f3;i12:9f1;c12:10f3;c13:9f0;c11:9f0;c10:9f1;c10:8f0;c10:4f2;c11:4f2;c9:4f2;q9:8f4;r9:9f1;b9:7f3;c8:8f1;c8:7f1;c8:6f1;c8:5f1;c8:4f2;
 
-** TODO Robo-children!
+** DONE Robo-children!
    :PROPERTIES:
    :objective: ACCEPT: An equal number of blue and red, in any order!
-   :time:     -
-   :parts:    -
-   :solution: ?lvl=18&code=
+   :time:     10771:28
+   :parts:    34
+   :solution: ?lvl=18&code=g12:3f3;c9:3f2;c10:3f2;c11:3f2;c13:10f3;c13:11f3;c13:12f0;q8:3f5;c8:4f1;c8:5f1;c8:6f1;c8:7f1;b9:6f3;p9:7f0;r9:8f1;b10:4f3;p10:5f0;c10:6f3;c10:7f0;p11:4f3;p12:4f3;c12:5f3;q12:6f3;p13:4f3;c13:6f3;i13:7f1;r14:4f3;p14:5f2;c14:6f3;c13:9f3;c14:7f0;i12:7f6;c11:7f0;c13:8f3;
    :image:    [[file:robochildren.png]]
-   :test:     -
+   :test:     '((r r b b b r b r) (b b r r b r r))
    :END:
 
 ** TODO Police!
