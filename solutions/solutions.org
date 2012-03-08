@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [20/23]
+* Levels [21/25]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -232,33 +232,33 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :test:     -
    :END:
 
-** TODO Teachers!
+** DONE Teachers!
    :PROPERTIES:
    :objective: ACCEPT: X blue, then X red, then X more blue, for any X!
-   :time:     -
-   :parts:    -
-   :solution: ?lvl=21&code=
+   :time:     1313:38
+   :parts:    27
+   :solution: ?lvl=21&code=g12:2f3;c13:8f3;c13:9f3;c13:10f3;c13:11f3;c13:12f3;c13:13f0;c11:2f2;p12:4f3;c12:5f2;q13:5f6;c13:6f3;c13:7f3;p11:4f0;b11:3f3;c12:3f3;c11:5f3;p11:6f3;r12:6f0;c9:2f2;c9:3f1;c9:4f1;c9:5f1;q9:6f4;c10:2f2;b10:5f3;p10:6f0;
    :image:    [[file:teachers.png]]
-   :test:     -
+   :test:     '((b b r r b b) (b b b r r r b b))
    :END:
 
-** Unknown
+** TODO Politicians!
    :PROPERTIES:
-   :objective: -
+   :objective: ACCEPT: if there are exactly twice as many blues as red!
    :time:     -
    :parts:    -
    :solution: ?lvl=22&code=
-   :image:    [[file:x.png]]
+   :image:    [[file:politicians.png]]
    :test:     -
    :END:
 
-** Unknown
+** TODO Academics!
    :PROPERTIES:
-   :objective: -
+   :objective: Reverse the input string!
    :time:     -
    :parts:    -
    :solution: ?lvl=23&code=
-   :image:    [[file:x.png]]
+   :image:    [[file:academics.png]]
    :test:     -
    :END:
 
