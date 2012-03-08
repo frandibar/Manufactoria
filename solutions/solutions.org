@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [21/25]
+* Levels [22/25]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -242,14 +242,14 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :test:     '((b b r r b b) (b b b r r r b b))
    :END:
 
-** TODO Politicians!
+** DONE Politicians!
    :PROPERTIES:
    :objective: ACCEPT: if there are exactly twice as many blues as red!
-   :time:     -
-   :parts:    -
-   :solution: ?lvl=22&code=
+   :time:     11655:47
+   :parts:    42
+   :solution: ?lvl=22&code=g12:2f3;c8:2f2;c9:2f2;i10:2f3;c11:2f2;c11:13f2;c7:2f2;c7:4f1;i9:4f1;c11:4f0;p12:4f3;c12:5f3;p13:4f2;c11:11f3;c11:12f3;c7:3f1;c12:3f3;r13:3f3;p10:4f0;p10:3f1;b11:3f0;c9:3f3;c7:5f1;c9:5f3;p10:5f3;r11:5f0;i10:6f6;c11:6f0;i12:6f6;p8:6f0;b8:5f3;c9:6f0;q7:6f4;q12:7f7;c11:7f3;c11:8f3;c11:9f3;c11:10f3;r8:7f1;p13:6f3;r14:6f0;c13:5f3;
    :image:    [[file:politicians.png]]
-   :test:     -
+   :test:     '((r b b r b r) (b b b r b r b))
    :END:
 
 ** TODO Academics!
