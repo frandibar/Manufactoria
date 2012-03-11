@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [22/25]
+* Levels [23/26]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -153,6 +153,8 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :test:     -
    :END:
 
+   If last is red, return s[:-1] + blue
+   Else convert blue to red from end to beginning until we find a red. If no red is found, add blue to the beginning.
 ** Unknown
    :PROPERTIES:
    :objective: -
@@ -211,24 +213,36 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :test:     '((r r b b b r b r) (b b r r b r r))
    :END:
 
-** TODO Police!
+** DONE Police!
    :PROPERTIES:
    :objective: OUTPUT: Put a yellow in the middle of the (even-length) string!
-   :time:     -
-   :parts:    -
-   :solution: ?lvl=19&code=
+   :time:     6480:52
+   :parts:    95
+   :solution: ?lvl=19&code=g12:2f0;p11:2f0;b11:1f0;r11:3f0;y10:3f3;c10:1f3;i10:2f1;c8:3f0;c7:3f0;c6:3f3;c6:4f3;c6:5f3;c6:6f3;c6:7f3;c6:8f3;c6:9f3;c6:10f3;c6:11f3;c6:12f3;c6:13f2;c7:13f2;c8:13f2;c9:13f2;c10:13f2;c11:13f2;y9:3f0;c13:13f0;c7:4f2;b7:5f1;c8:4f2;q8:5f0;y8:6f3;b8:7f2;b8:9f2;c9:4f3;p9:5f3;g9:7f3;c9:8f3;p9:9f3;q9:10f7;c10:4f0;q10:5f6;y10:6f3;r10:7f0;c10:8f0;r10:9f0;q10:10f2;y10:11f2;c11:4f0;r11:5f1;c11:8f0;c11:9f2;c11:10f1;c11:11f2;r12:10f3;p12:11f2;b12:12f1;b13:10f2;q13:11f6;c13:12f3;c12:9f2;r13:8f2;p13:9f2;c14:8f3;y14:9f2;c14:10f1;q9:2f0;q16:8f1;p16:9f2;q16:10f7;r17:7f1;y17:8f1;y17:10f2;c18:6f0;c18:7f1;c18:8f1;c18:9f1;b18:10f1;c15:9f2;c15:10f1;c15:11f1;c15:7f3;c15:8f3;b16:11f0;r16:7f0;r14:7f1;b14:5f3;p14:6f0;q13:6f0;g13:7f0;c17:6f0;c16:6f0;c15:6f0;c11:7f3;c12:7f0;
    :image:    [[file:police.png]]
-   :test:     -
+   :test:     '(r b b b r r b r)
    :END:
 
-   Should I asume that all input strings are even?
-** Unknown
+   I asume that all input strings are even.
+
+   The solution has 7 major blocks:
+   + add end flag and handle empty string
+   + add first y after first b/r
+   + add second yellow before last b/r
+   + swap first yellow with next b/r
+   + swap second yellow with previous b/r
+   + handle case when yellows meet
+   + read and rewrite till end flag, repeat swap step.
+
+   Looking at the solution, some branch paths that should reject are connected. This is due to space restrictions and the fact that such situations should not arise.
+
+** TODO Judiciary!
    :PROPERTIES:
-   :objective: -
+   :objective: ACCEPT: (Even-length) strings that repeat midway through
    :time:     -
    :parts:    -
    :solution: ?lvl=20&code=
-   :image:    [[file:x.png]]
+   :image:    [[file:judiciary.png]]
    :test:     -
    :END:
 
@@ -241,14 +255,14 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :image:    [[file:teachers.png]]
    :test:     '((b b r r b b) (b b b r r r b b))
    :END:
-
-** DONE Politicians!
+   
+** DONE Politians!
    :PROPERTIES:
-   :objective: ACCEPT: if there are exactly twice as many blues as red!
+   :objective: ACCEPT: If there are exactly twice as many blues as red!
    :time:     11655:47
    :parts:    42
    :solution: ?lvl=22&code=g12:2f3;c8:2f2;c9:2f2;i10:2f3;c11:2f2;c11:13f2;c7:2f2;c7:4f1;i9:4f1;c11:4f0;p12:4f3;c12:5f3;p13:4f2;c11:11f3;c11:12f3;c7:3f1;c12:3f3;r13:3f3;p10:4f0;p10:3f1;b11:3f0;c9:3f3;c7:5f1;c9:5f3;p10:5f3;r11:5f0;i10:6f6;c11:6f0;i12:6f6;p8:6f0;b8:5f3;c9:6f0;q7:6f4;q12:7f7;c11:7f3;c11:8f3;c11:9f3;c11:10f3;r8:7f1;p13:6f3;r14:6f0;c13:5f3;
-   :image:    [[file:politicians.png]]
+   :image:    [[file:judiciary.png]]
    :test:     '((r b b r b r) (b b b r b r b))
    :END:
 
