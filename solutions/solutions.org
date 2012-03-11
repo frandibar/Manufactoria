@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [23/26]
+* Levels [24/26]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -122,7 +122,7 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :image:    [[file:robostilts.png]]
    :test:     '(r r b r b r b b r)
    :END:
-   
+
 ** DONE Milidogs!
    :PROPERTIES:
    :objective: ACCEPT: With blue as 1 and red as 0, accept odd binary strings!
@@ -132,7 +132,7 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :image:    [[file:milidogs.png]]
    :test:     '((b r r r r b r b) (b r r r r b b r))
    :END:
-   
+
 ** DONE Soldiers!
    :PROPERTIES:
    :objective: OUTPUT: With blue as 1 and red as 0, multiply by 8.
@@ -236,20 +236,42 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
 
    Looking at the solution, some branch paths that should reject are connected. This is due to space restrictions and the fact that such situations should not arise.
 
-** TODO Judiciary!
+** DONE Judiciary!
    :PROPERTIES:
    :objective: ACCEPT: (Even-length) strings that repeat midway through
-   :time:     -
-   :parts:    -
-   :solution: ?lvl=20&code=
+   :time:     8198:20
+   :parts:    138
+   :solution: ?lvl=20&code=g12:2f0;p11:2f0;b11:1f0;r11:3f0;y10:3f3;c10:1f3;i10:2f1;c8:3f0;c7:3f0;c6:3f3;c6:4f3;c6:5f3;c6:6f3;c6:7f3;c6:8f3;c6:9f3;c6:10f3;c6:11f3;c6:12f3;c6:13f2;c7:13f2;c8:13f2;c9:13f2;c10:13f2;y9:3f0;c7:4f2;b7:5f1;c8:4f2;q8:5f0;y8:6f3;b8:7f2;b8:9f2;c9:4f3;p9:5f3;g9:7f3;c9:8f3;p9:9f3;q9:10f7;c10:4f0;q10:5f6;c10:8f0;r10:9f0;q10:10f2;c11:4f0;r11:5f1;c11:8f0;q9:2f0;c11:7f3;y10:6f0;r9:6f3;c12:6f0;c12:5f3;c11:6f3;p8:11f4;r8:10f3;b8:12f1;y10:11f0;c9:11f0;q7:11f0;c7:12f3;c12:10f1;c12:11f1;c12:3f3;c12:4f3;y12:9f1;c12:8f1;c12:7f2;c11:12f2;c12:12f2;c13:12f1;c13:11f1;g13:10f2;p14:10f2;c13:13f0;r14:4f3;c14:5f2;g15:1f0;r15:2f2;y15:3f1;q15:4f0;c15:5f2;q16:1f1;p16:2f1;p16:4f1;b17:2f0;y17:3f1;q17:4f6;c17:5f0;b18:4f3;c18:5f0;c16:5f1;p11:10f2;r11:9f2;b11:11f2;c13:5f2;c14:1f0;c13:1f3;c13:2f3;c13:3f0;c14:11f3;c14:12f2;c15:10f3;c15:11f3;i15:12f5;b16:11f3;p16:12f6;r16:13f1;y18:12f1;p18:11f5;c17:11f1;p17:10f5;r18:10f0;b16:10f2;c13:6f1;r13:8f2;q14:7f1;p14:8f1;p15:6f5;y15:7f1;b15:8f0;c13:7f1;c16:9f0;i14:9f0;c15:9f0;c13:9f3;c17:6f3;c16:6f2;b16:7f2;p17:7f3;r18:7f0;q17:9f1;c17:8f3;q11:13f1;q18:13f6;c17:13f2;c17:12f3;q14:13f7;c15:13f0;
    :image:    [[file:judiciary.png]]
-   :test:     -
+   :test:     '(b b b r b b b r)
    :END:
 
    Example of valid string: '(b r b r)
 
    This one starts where Police! ends.
-   unfinished sol: ?lvl=20&code=g12:2f0;p11:2f0;b11:1f0;r11:3f0;y10:3f3;c10:1f3;i10:2f1;c8:3f0;c7:3f0;c6:3f3;c6:4f3;c6:5f3;c6:6f3;c6:7f3;c6:8f3;c6:9f3;c6:10f3;c6:11f3;c6:12f3;c6:13f2;c7:13f2;c8:13f2;c9:13f2;c10:13f2;c11:13f2;y9:3f0;c13:13f0;c7:4f2;b7:5f1;c8:4f2;q8:5f0;y8:6f3;b8:7f2;b8:9f2;c9:4f3;p9:5f3;g9:7f3;c9:8f3;p9:9f3;q9:10f7;c10:4f0;q10:5f6;y10:6f3;r10:7f0;c10:8f0;r10:9f0;q10:10f2;y10:11f2;c11:4f0;r11:5f1;c11:8f0;c11:9f2;c11:10f1;c11:11f2;r12:10f3;p12:11f2;b12:12f1;b13:10f2;q13:11f6;c13:12f3;c12:9f2;r13:8f2;p13:9f2;c14:8f3;y14:9f2;c14:10f1;q9:2f0;q16:8f1;p16:9f2;q16:10f7;r17:7f1;y17:8f1;y17:10f2;c18:6f0;c18:7f1;c18:8f1;c18:9f1;b18:10f1;c15:9f2;c15:10f1;c15:11f1;c15:7f3;c15:8f3;b16:11f0;r16:7f0;r14:7f1;b14:5f3;p14:6f0;q13:6f0;g13:7f0;c17:6f0;c16:6f0;c15:6f0;c11:7f3;c12:7f0;
+
+   The pseudocode for the last part (after adding a yellow in the center) looks like:
+   If I have (b r b r) as input, at this point I have (b r y b r)
+   ...................
+   .                 wg
+   .                 .
+   .     ............br...........
+   .     .           .           .
+   .  wb.br.wr    ..gy        wb.br.wr
+   .     .        .              .
+   .     gy..    (A)             gy..
+   .        .                       .
+   .        wy                      wy
+   .        .                       .
+   .     ...br..(R)            (R)..br..
+   .     .                             .
+   .     ...............................
+   .     .
+   .  wb.br.wr
+   .     .
+   .     gy
+   ......
+
 ** DONE Teachers!
    :PROPERTIES:
    :objective: ACCEPT: X blue, then X red, then X more blue, for any X!
@@ -259,7 +281,7 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :image:    [[file:teachers.png]]
    :test:     '((b b r r b b) (b b b r r r b b))
    :END:
-   
+
 ** DONE Politians!
    :PROPERTIES:
    :objective: ACCEPT: If there are exactly twice as many blues as red!
