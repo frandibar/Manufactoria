@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [24/26]
+* Levels [25/26]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -143,25 +143,29 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :test:     '(r b r b b r b r)
    :END:
 
-** TODO Officers!
+** DONE Officers!
    :PROPERTIES:
    :objective: OUTPUT: With blue as 1 and red as 0, add 1 to the binary string!
-   :time:     -
-   :parts:    -
-   :solution: ?lvl=13&code=
+   :time:     2484:16
+   :parts:    96
+   :solution: ?lvl=13&code=c13:13f0;c18:5f3;c18:6f3;c18:7f3;c18:8f3;c18:9f3;c18:10f3;c18:11f3;c18:12f3;c18:13f0;c17:13f0;c15:13f0;c14:13f0;c16:13f0;c18:4f3;c15:1f3;c15:2f3;r16:1f0;q16:2f5;p16:3f2;b17:2f2;c18:2f3;c18:3f3;c15:4f1;c15:5f1;q16:4f3;b16:5f0;c15:3f2;q17:3f3;y17:4f3;b17:5f3;g17:6f0;c16:6f0;c12:2f2;c13:2f2;g14:2f2;b6:7f1;c6:8f1;q7:7f4;y7:8f0;i8:7f0;c9:6f3;p9:7f3;q9:8f7;c10:6f0;c10:7f2;c11:6f0;q11:7f2;y11:8f2;c12:6f0;r12:7f1;r12:8f2;c13:6f0;p13:8f7;b14:8f0;q15:6f4;c14:6f0;b15:7f3;c9:5f3;b7:6f2;g8:6f2;c6:6f1;c6:5f2;c7:5f2;c8:5f2;b10:8f3;q13:10f7;c10:9f2;c11:9f2;c12:9f2;i13:9f7;c14:9f2;c15:12f1;c14:12f2;c8:8f1;r8:12f2;p9:12f7;q9:13f3;b10:12f0;c10:13f2;r11:11f2;g11:12f0;c11:13f2;p12:11f7;q12:12f7;b13:11f0;c13:12f2;g12:10f3;r16:10f3;p16:11f6;b16:12f1;q17:11f3;c15:11f2;c15:8f3;c15:9f3;c15:10f3;
    :image:    [[file:officers.png]]
-   :test:     -
+   :test:     '(b r r b r b b b b)
    :END:
 
    If last is red, return s[:-1] + blue
-   Else convert blue to red from end to beginning until we find a red. If no red is found, add blue to the beginning.
-** Unknown
+   Else convert blue to red from end to beginning until we find a red, which we convert to blue. If no red is found, add blue to the beginning.
+
+   I put a yellow marker at the end, and move it towards the beginning until I find a red. At that point I reverse everything from y onwards.
+
+
+** Generals!
    :PROPERTIES:
-   :objective: -
+   :objective: OUTPUT: Substract 1 from the binary string! (Input >= 1)
    :time:     -
    :parts:    -
    :solution: ?lvl=14&code=
-   :image:    [[file:x.png]]
+   :image:    [[file:generals.png]]
    :test:     -
    :END:
 
