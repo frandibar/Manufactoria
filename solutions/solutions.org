@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [28/29]
+* Levels [28/30]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -366,24 +366,27 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :image:    [[file:robomecha.png]]
    :test:     '(r r r b b r b)
    :END:
+
 ** TODO Seraphim
    :PROPERTIES:
    :objective: ACCEPT: Two identical strings, separated by green!
-   :time:     -
-   :parts:    -
+   :time:     4398:06
+   :parts:    37
    :solution: ?lvl=29&code=
    :image:    [[file:seraphim.png]]
-   :test:     -
+   :test:     '((b r r g r b r) (r b b g b r b)
    :END:
-** Unknown
+
+** TODO Ophanim
    :PROPERTIES:
-   :objective: -
+   :objective: ACCEPT: Read the tape as two numbers, A and B, split by a green: accept if A>B.
    :time:     -
    :parts:    -
    :solution: ?lvl=30&code=
-   :image:    [[file:unknown.png]]
+   :image:    [[file:ophanim.png]]
    :test:     -
    :END:
+
 ** Unknown
    :PROPERTIES:
    :objective: -
