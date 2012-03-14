@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [26/27]
+* Levels [27/28]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -301,23 +301,27 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
    :test:     '((r b b r b r) (b b b r b r b))
    :END:
 
-** TODO Academics!
+** DONE Academics!
    :PROPERTIES:
    :objective: Reverse the input string!
-   :time:     -
-   :parts:    -
-   :solution: ?lvl=23&code=
+   :time:     8225:56
+   :parts:    50
+   :solution: ?lvl=23&code=y12:2f3;g12:3f3;c12:4f3;p12:5f3;c9:4f2;b9:5f1;c10:4f2;q10:5f4;y10:6f3;p10:7f3;c11:5f0;c11:4f2;r11:7f0;b9:7f2;b10:8f3;c8:7f1;c8:6f1;c8:5f1;c8:4f2;c12:6f3;c13:13f0;c14:13f0;c12:7f3;c12:8f3;c12:10f3;q12:11f7;r13:10f3;p13:11f2;b13:12f1;q14:11f6;c14:12f3;i12:9f1;c13:5f2;q14:5f2;r15:5f1;c15:4f0;c14:4f0;c13:4f0;y14:6f3;p14:7f3;b13:7f2;r15:7f0;r14:8f3;c14:9f0;c13:9f0;c11:9f0;q9:9f4;c8:8f1;g9:8f0;c10:9f0;
    :image:    [[file:academics.png]]
-   :test:     -
+   :test:     '(r r r r b b b b)
    :END:
 
-** Unknown
+   Use 2 flags, y and g. Add them in that order from start.
+   Read from beginning until we encounter a y, save last read, read/write until we encounter a g, write saved.
+   Continue until y is at the beginning, discard y and g
+
+** TODO Engineers!
    :PROPERTIES:
-   :objective: -
+   :objective: ACCEPT: Perfectly symmetrical strings!
    :time:     -
    :parts:    -
    :solution: ?lvl=24&code=
-   :image:    [[file:x.png]]
+   :image:    [[file:engineers.png]]
    :test:     -
    :END:
 
