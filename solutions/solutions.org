@@ -1,7 +1,7 @@
 To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/manufactoria][here]].
 
 #+STARTUP: content
-* Levels [25/26]
+* Levels [26/27]
 #+COLUMNS: %TODO %20ITEM %10time %5parts
   :PROPERTIES:
   :image:    [[file:manufactoria.png]]
@@ -158,16 +158,21 @@ To play the game online, clic [[http://www.kongregate.com/games/PleasingFungus/m
 
    I put a yellow marker at the end, and move it towards the beginning until I find a red. At that point I reverse everything from y onwards.
 
-
-** Generals!
+** DONE Generals!
    :PROPERTIES:
    :objective: OUTPUT: Substract 1 from the binary string! (Input >= 1)
-   :time:     -
-   :parts:    -
-   :solution: ?lvl=14&code=
+   :time:     2434:34
+   :parts:    96
+   :solution: ?lvl=14&code=c13:13f0;c18:5f3;c18:6f3;c18:7f3;c18:8f3;c18:9f3;c18:10f3;c18:11f3;c18:12f3;c18:13f0;c17:13f0;c15:13f0;c14:13f0;c16:13f0;c18:4f3;c15:1f3;c15:2f3;q16:2f5;c18:2f3;c18:3f3;c15:4f1;c15:5f1;q16:4f3;c15:3f2;q17:3f3;y17:4f3;g17:6f0;c16:6f0;c12:2f2;c13:2f2;g14:2f2;c6:8f1;q7:7f4;y7:8f0;i8:7f0;c9:6f3;q9:8f7;c10:6f0;c10:7f2;c11:6f0;q11:7f2;y11:8f2;c12:6f0;c13:6f0;q15:6f4;c14:6f0;c9:5f3;g8:6f2;c6:6f1;c6:5f2;c7:5f2;c8:5f2;q13:10f7;c10:9f2;c11:9f2;c12:9f2;i13:9f7;c14:9f2;c15:12f1;c14:12f2;c8:8f1;q9:13f3;c10:13f2;g11:12f0;c11:13f2;q12:12f7;c13:12f2;g12:10f3;r16:10f3;p16:11f6;b16:12f1;q17:11f3;c15:11f2;c15:8f3;c15:9f3;c15:10f3;p16:3f6;r17:2f2;b16:1f0;r16:5f0;r17:5f3;p9:7f7;r6:7f1;r7:6f2;b12:7f1;r10:8f3;r15:7f3;b12:8f2;r14:8f0;p13:8f3;r13:11f0;b11:11f2;p12:11f3;p9:12f3;b8:12f2;r10:12f0;
    :image:    [[file:generals.png]]
-   :test:     -
+   :test:     '(b r r b r b b b b)
    :END:
+
+   Same as Officers! but the opposite:
+   If last is blue, return s[:-1] + red
+   Else convert red to blue from end to beginning until we find a blue, which we convert to red.
+
+   It's not necessary to remove redundant reds at the beginning.
 
 ** DONE Robotanks!
    :PROPERTIES:
